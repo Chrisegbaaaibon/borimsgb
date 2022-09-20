@@ -7,7 +7,6 @@ cloudinary.config({
     cloud_name: process.env.CLOUD_NAME
 });
 
-
 async function uploadFileResponse(fileData){
 
     const uploadResponse = await cloudinary.uploader.upload(
