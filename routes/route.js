@@ -55,4 +55,10 @@ route.get(`/view/:token`, async (req, res)=>{
   }
 })
 
+route.get('/', async (req, res)=>{
+    res.status(200).json({
+        version: 'v1'
+    })
+})
+
 module.exports = route;
