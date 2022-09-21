@@ -4,13 +4,12 @@ const fileUpload = require('express-fileupload')
 const route = require("./routes/route");
 const app = express()
 
-const PORT = 2001 || process.env.PORT
 app.use(fileUpload({ useTempFiles: true }));
 
 app.use(express.urlencoded({extended: false}));
 app.use('/', route)
 app.use(express.json());
 
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || 2001, ()=>{
     console.log('App running')
 })
