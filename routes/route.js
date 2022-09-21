@@ -31,7 +31,7 @@ route.post('/post', async (req, res)=>{
                 Error: "An error occurred."
             })
             return res.status(200).json({
-                link: `http://localhost:2001/view/${response}`
+                link: `https://borimsg.herokuapp.com/view/${response}`
             })
         })
     }catch (e) {
