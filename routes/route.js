@@ -1,9 +1,15 @@
 const route = require('express').Router();
-const uploadFileResponse = require('../core')
+const {uploadFileResponse} = require('../core')
 const jwt = require('jsonwebtoken');
+const {verifyToken} = require("../v1/core/verifyToken");
+const {register, verifySignUp, loginUser} = require("../v1/borimsg/controllers/user/user.controller");
 require('dotenv').config()
 
-route.post('/post', async (req, res)=>{
+route.post('/register', register);
+route.post('/auth/activate', verifySignUp);
+route.post('/login', loginUser)
+
+route.post('/post', verifyToken, async (req, res)=>{
     try {
         const photos = req.files.photos;
         const {
